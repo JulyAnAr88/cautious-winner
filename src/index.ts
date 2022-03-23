@@ -1,4 +1,6 @@
-import { Application, Container, Loader, Point, Sprite } from 'pixi.js'
+import { Application, Loader} from 'pixi.js'
+import { assets } from './assets';
+import { Scene } from './Scene';
 
 const app = new Application({
 	view: document.getElementById("pixi-canvas") as HTMLCanvasElement,
@@ -31,44 +33,13 @@ window.addEventListener("resize", ()=>{
 });
 window.dispatchEvent(new Event("resize"));
 
-Loader.shared.add({url:"./homero.png",name:"Homero"});
-Loader.shared.add({url:"./papitas.png",name:"papitas"});
+Loader.shared.add(assets);
 
 Loader.shared.onComplete.add(()=>{
 
-	const homero: Sprite = Sprite.from("Homero");
-	const papitas0: Sprite = Sprite.from("papitas");
-	const papitas1: Sprite = Sprite.from("papitas");
+	const myScene = new Scene();
 
-	//console.log("Hola mundo!", clampy.width, clampy.height);
-
-	//clampy.anchor.set(0.5);
-
-	//homero.x = 0;
-	homero.y = 50;
-
-	papitas0.angle = 10;
-	papitas0.position.set(250,50);
-	papitas0.scale.set(0.75,0.75);
-
-	papitas1.angle = -15;
-	papitas1.position.set(550,0);
-	papitas1.scale.set(0.75,0.75);
-
-	const HomerEatPapitas: Container = new Container();
-
-	HomerEatPapitas.addChild(homero);
-	HomerEatPapitas.addChild(papitas0);
-	HomerEatPapitas.addChild(papitas1);
-
-	//HomerEatPapitas.scale.set(0.75);
-	HomerEatPapitas.x = 0;
-	HomerEatPapitas.y = 100;
-	
-	console.log(papitas1.toGlobal(new Point()));
-	console.log(papitas1.parent.toGlobal(papitas1.position));
-
-	app.stage.addChild(HomerEatPapitas);
+	app.stage.addChild(myScene);
 
 })
 
