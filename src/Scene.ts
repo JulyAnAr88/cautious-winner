@@ -1,6 +1,6 @@
-import { AnimatedSprite, Container, NineSlicePlane, Text, Sprite, Texture } from "pixi.js";
+import { AnimatedSprite, Container, NineSlicePlane, Text, Sprite, Texture} from "pixi.js";
 import { BasesStats } from "./BasesStats";
-import { EstrellasVacias } from "./Estrellas";
+import { EstrellasVacias } from "./EstrellasVacias";
 import { Homer } from "./Homer";
 
 export class Scene extends Container {
@@ -45,7 +45,6 @@ export class Scene extends Container {
     this.addChild(plaquita);
     plaquita.width = 400;
     plaquita.height = 320;
-
     plaquita.scale.set(2);
     plaquita.position.x = 225;
     plaquita.position.y = 20;
@@ -61,15 +60,14 @@ export class Scene extends Container {
     titulo.position.y = 5;
     titulo.position.x = 400;
 
-    const estrellallena0= Sprite.from("estrellallena");
-    //this.addChild(estrellallena0);
-    estrellallena0.scale.set(0.5);
     
+    const estrellasVacias = new EstrellasVacias();
+    this.addChild(estrellasVacias);
+    estrellasVacias.pivot.x = estrellasVacias.width/2;
+    estrellasVacias.pivot.y = 500;
+    estrellasVacias.scale.set(0.25);
+    estrellasVacias.position.set(850,180);
 
-    const estrellaVacia = new EstrellasVacias();
-    //this.addChild(estrellaVacia);
-    estrellaVacia.scale.set(0.5);
-    
     
     const base0= new BasesStats();
     this.addChild(base0);
