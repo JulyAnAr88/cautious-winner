@@ -1,7 +1,7 @@
 import { AnimatedSprite, Container, NineSlicePlane, Text, Sprite, Texture} from "pixi.js";
-import { BasesStats } from "./BasesStats";
+import { BasesStats } from "../scenes/BasesStats";
 import { EstrellasVacias } from "./EstrellasVacias";
-import { Homer } from "./Homer";
+import { Homer } from "../scenes/Homer";
 
 export class Scene extends Container {
     constructor(){
