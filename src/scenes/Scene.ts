@@ -2,8 +2,12 @@ import { AnimatedSprite, Container, NineSlicePlane, Text, Sprite, Texture} from 
 import { BasesStats } from "../scenes/BasesStats";
 import { EstrellasVacias } from "./EstrellasVacias";
 import { Homer } from "../scenes/Homer";
+import { UIDemo } from "./UIDemo";
 
 export class Scene extends Container {
+
+    public static lastKeyPressed: Text;
+
     constructor(){
         super();
         
@@ -63,11 +67,13 @@ export class Scene extends Container {
     
     const estrellasVacias = new EstrellasVacias();
     this.addChild(estrellasVacias);
-    estrellasVacias.pivot.x = estrellasVacias.width/2;
+    /*estrellasVacias.pivot.x = estrellasVacias.width/2;
     estrellasVacias.pivot.y = 500;
+    estrellasVacias.position.set(850,180);*/
+    estrellasVacias.position.set(600,50);
+    
     estrellasVacias.scale.set(0.25);
-    estrellasVacias.position.set(850,180);
-
+    
     
     const base0= new BasesStats();
     this.addChild(base0);
@@ -90,12 +96,21 @@ export class Scene extends Container {
     cruz.scale.set(5);
     
     
-    const botones= Sprite.from("botones");
+    const botones= new UIDemo();
     this.addChild(botones);
-    botones.position.y = 540;
+    botones.position.y = 560;
     botones.position.x = 380;
-    botones.scale.set(1.45);
+    botones.scale.set(2.75);
 
+    Scene.lastKeyPressed = new Text("Waiting...", {fontSize: 28, fill: 0xe61313});
+    Scene.lastKeyPressed.anchor.set(0.5);
+    Scene.lastKeyPressed.x = botones.x + 700;
+    Scene.lastKeyPressed.y = botones.y + 120;
+
+            
+    this.addChild(Scene.lastKeyPressed);
+
+    
     const star= Sprite.from("star");
     this.addChild(star);
     star.scale.set(1.5);
@@ -129,7 +144,6 @@ export class Scene extends Container {
 
     }
 
-    
-
+   
     
 }

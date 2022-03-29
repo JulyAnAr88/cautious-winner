@@ -21,6 +21,13 @@ export const assets =[
 {url:"./UI/medal2.png",name:"medal2"},
 {url:"./UI/star.png",name:"star"},
 
+{url:"./UI/botones/botonhome.png",name:"bHome"},
+{url:"./UI/botones/botonhomepressed.png",name:"bHomePress"},
+{url:"./UI/botones/botonreturn.png",name:"bReturn"},
+{url:"./UI/botones/botonreturnpressed.png",name:"bReturnPress"},
+{url:"./UI/botones/botonright.png",name:"bRight"},
+{url:"./UI/botones/botonrightpressed.png",name:"bRightPress"},
+
 
 ]
 

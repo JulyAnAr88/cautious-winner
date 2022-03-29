@@ -1,36 +1,52 @@
-import { Container, /*Point,*/ Sprite } from "pixi.js";
+import { Container, Sprite } from "pixi.js";
 
 export class EstrellasVacias extends Container{
     constructor (){
         super();
         
-    const estrellaVacia0: Sprite = Sprite.from("estrellavacia");
-    const estrellaVacia1: Sprite = Sprite.from("estrellallena");
-    const estrellaVacia2: Sprite = Sprite.from("estrellavacia");
+
+        const dialog = new Container();
+        /*dialog.x = 1280/2;
+        dialog.y = 720/2;*/
+
+    const estrellaMid: Sprite = Sprite.from("estrellavacia");
+    const estrellaIzq: Sprite = Sprite.from("estrellallena");
+    const estrellaDer: Sprite = Sprite.from("estrellavacia");
 
     
-    /*estrellaVacia0.position.x = 1280/2;
-    estrellaVacia0.position.y = 720/2;  */
-    estrellaVacia0.pivot.x = estrellaVacia0.width/2;
-    estrellaVacia0.pivot.y = -550;
-    //console.log(estrellaVacia0.toGlobal(new Point()));
+    estrellaMid.position.x = dialog.width/2;
+    estrellaMid.position.y = dialog.height/2;
+    estrellaIzq.position.copyFrom(estrellaMid.position); 
+    estrellaDer.position.copyFrom(estrellaMid.position); 
+
+    //estrellaMid.anchor.set(1.5);
+    estrellaMid.pivot.x = estrellaMid.width/2;
+    estrellaMid.pivot.y = -550;
+
+    estrellaDer.pivot = estrellaMid.pivot;
+    estrellaIzq.pivot = estrellaMid.pivot;
+    /*
+    estrellaIzq.anchor.set(1.5);*/
+    estrellaIzq.angle = 45;
+    estrellaDer.angle = -45;
+    /*
+    estrellaDer.anchor.set(1.5);
     
-    estrellaVacia1.position = estrellaVacia0.position;
-    estrellaVacia1.pivot = estrellaVacia0.pivot;
-    estrellaVacia1.angle = 45;
+    estrellaMid.anchor.set(0.5);
     
-    estrellaVacia2.position = estrellaVacia0.position;
-    estrellaVacia2.pivot = estrellaVacia0.pivot;
-    estrellaVacia2.angle = -45;
+    console.log(estrellaMid.toGlobal(new Point()));
+       
+    */
 
     
-    //console.log(estrellaVacia2.toGlobal(new Point()));
-    //console.log(estrellaVacia2.parent.toGlobal(estrellaVacia0.position));
+    //console.log(estrellaMid.toGlobal(new Point()));
+    console.log(estrellaMid.toGlobal(estrellaMid.pivot));
+    //console.log(estrellaMid.parent.toGlobal(estrellaMid.pivot));
 
+    dialog.addChild(estrellaMid, estrellaDer, estrellaIzq);
   
-    this.addChild(estrellaVacia0);
-    this.addChild(estrellaVacia1);
-    this.addChild(estrellaVacia2);
+
+    this.addChild(dialog);
 
     }
 }

@@ -1,6 +1,7 @@
 import { Application, Loader} from 'pixi.js'
 import { assets } from './assets';
-import { Scene } from './Scene';
+import { Scene } from './scenes/Scene';
+import { Keyboard } from './utils/Keyboard';
 
 const app = new Application({
 	view: document.getElementById("pixi-canvas") as HTMLCanvasElement,
@@ -10,6 +11,8 @@ const app = new Application({
 	width: 1280,
 	height: 720
 });
+
+Keyboard.initialize();
 
 window.addEventListener("resize", ()=>{
 	const scaleX = window.innerWidth / app.screen.width;
@@ -38,7 +41,7 @@ Loader.shared.add(assets);
 Loader.shared.onComplete.add(()=>{
 
 	const myScene = new Scene();
-
+	
 	app.stage.addChild(myScene);
 
 })
