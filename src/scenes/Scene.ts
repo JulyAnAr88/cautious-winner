@@ -69,8 +69,9 @@ export class Scene extends Container {
     this.addChild(estrellasVacias);
     /*estrellasVacias.pivot.x = estrellasVacias.width/2;
     estrellasVacias.pivot.y = 500;
-    estrellasVacias.position.set(850,180);*/
-    estrellasVacias.position.set(600,50);
+    estrellasVacias.position.set(850,180);set(600,50)*/
+    estrellasVacias.position.x = plaquita.x + 400;
+    estrellasVacias.position.y = titulo.y + 45;
     
     estrellasVacias.scale.set(0.25);
     
