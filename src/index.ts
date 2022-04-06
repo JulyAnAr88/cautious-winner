@@ -45,7 +45,7 @@ Loader.shared.onComplete.add(()=>{
 	app.stage.addChild(myScene);
 	Ticker.shared.add(function (deltaFrame){
 		myScene.update(Ticker.shared.deltaMS, deltaFrame);
-	});/**/
+	});
 
 })
 

@@ -1,8 +1,10 @@
 
 
 export const assets =[
-{url:"./homero.png",name:"Homero"},
-{url:"./homeroComp.png",name:"HomeroComp"},
+{url:"./homero/homero.png",name:"Homero"},
+{url:"./homero/homeroComp.png",name:"homeroComp"},
+{url:"./homero/homeroComp1.png",name:"homeroComp1"},
+{url:"./homero/homeroComp2.png",name:"homeroComp2"},
 
 {url:"./papitas/papitas.png",name:"papitas"},
 {url:"./papitas/papitas1.png",name:"papitas1"},
