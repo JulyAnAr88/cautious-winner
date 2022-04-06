@@ -1,5 +1,5 @@
 import { Container, Sprite, Texture } from "pixi.js";
-import { Scene } from "../scenes/Scene";
+import { UIDemo } from "../scenes/UIDemo";
 
 export class Button extends Container{
 
@@ -50,7 +50,8 @@ private onMouseOut():void{
 private onMouseUp(): void {
     this.emit("buttonClick");
     this.spr.texture = this.def;
-    Scene.lastKeyPressed.text = "Presionaste " + this.nameButton;
+    UIDemo.lastKeyPressed.text = "Presionaste " + this.nameButton;
+    
 }
 
 

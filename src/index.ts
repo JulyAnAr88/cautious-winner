@@ -1,6 +1,7 @@
-import { Application, Loader} from 'pixi.js'
+import { Application, Loader, Ticker/**/} from 'pixi.js'
 import { assets } from './assets';
-import { Scene } from './scenes/Scene';
+//import { Scene } from './scenes/Scene';
+import { TickerScene } from './scenes/TickerScene';
 import { Keyboard } from './utils/Keyboard';
 
 const app = new Application({
@@ -40,9 +41,11 @@ Loader.shared.add(assets);
 
 Loader.shared.onComplete.add(()=>{
 
-	const myScene = new Scene();
-	
+	const myScene = new TickerScene();
 	app.stage.addChild(myScene);
+	Ticker.shared.add(function (deltaFrame){
+		myScene.update(Ticker.shared.deltaMS, deltaFrame);
+	});/**/
 
 })
 
