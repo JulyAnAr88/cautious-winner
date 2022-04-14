@@ -31,6 +31,8 @@ export const assets =[
 {url:"./UI/botones/botonright.png",name:"bRight"},
 {url:"./UI/botones/botonrightpressed.png",name:"bRightPress"},
 
+{url:"./dvd.png",name:"dvd"},
+
 
 ]
 
